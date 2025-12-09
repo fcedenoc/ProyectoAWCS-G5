@@ -104,6 +104,8 @@
                 return;
             }
 
+            const last3 = correo.slice(-3);
+
             Swal.fire({
                 icon: 'success',
                 title: 'Correo enviado',
@@ -116,7 +118,7 @@
             });
 
             setTimeout(() => {
-                window.location.href = "login.html";
+                window.location.href = "confirmacion-envio.html?last3=" + encodeURIComponent(last3);
             }, 2500);
         });
     </script>
