@@ -50,7 +50,7 @@ cerrarConexion($mysqli);
     <div class="container mt-5">
         <main id="content">
             <section id="inicio" class="page active">
-                <h1>Panel de Administración - Inicio</h1>
+                <h1 class="mb-5">Panel de Administración - Inicio</h1>
                 <div class="row mb-4">
                     <div class="col-md-4">
                         <div class="card text-center">
