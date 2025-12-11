@@ -10,7 +10,11 @@ attachEventListeners();
 
 const adminToggle = document.getElementById('adminToggle');
 adminToggle.addEventListener('click', () => {
-    window.location.href = 'panelAdmin.php';
+    if (window.location.pathname.includes('panelAdmin.php')) {
+        window.location.href = 'index.php';
+    } else {
+        window.location.href = 'panelAdmin.php';
+    }
 });
 
 function attachEventListeners() {

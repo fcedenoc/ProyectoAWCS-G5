@@ -34,7 +34,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     }
 
     try {
-        const respuesta = await fetch('../php/login/login.php', {
+        const respuesta = await fetch('php/login/login.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({ usuario, contrasenna })
@@ -55,7 +55,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
             });
 
             setTimeout(() => {
-                window.location.href = "../index.php";
+                window.location.href = "index.php";
             }, 3000);
         } else {
             Swal.fire({
