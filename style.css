@@ -24,6 +24,15 @@ body {
     padding: 0.8rem 1.5rem;
 }
 
+.navbaradmin.html {
+    background-color: var(--azul-principal);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+}
+
 .logo {
     font-weight: bold;
     font-size: 1.3rem;
@@ -188,4 +197,17 @@ footer {
 body.dark {
     --fondo: #1e1e1e;
     --texto: #E6EEF2;
+}
+
+.admin-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-btn:hover {
+    color: #ddd;
 }
