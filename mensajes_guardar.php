@@ -1,38 +1,35 @@
 <?php
-
-// Configuración de la base de datos
 $servername = "localhost";
-$username = "root"; 
-$password = "Jordan18122579";      
+$username = "root";
+$password = "Jordan18122579";
 $database = "BD_PF_III25";
 
-// Conexión
 $conn = new mysqli($servername, $username, $password, $database);
 
-// Verificación de conexión
 if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+    http_response_code(500);
+    echo "Error de conexión a la base de datos";
+    exit;
 }
 
-// Recibir datos del formulario
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
-$mensaje = $_POST['mensaje'];
+$nombre  = isset($_POST['nombre']) ? trim($_POST['nombre']) : null;
+$correo  = isset($_POST['correo']) ? trim($_POST['correo']) : null;
+$mensaje = isset($_POST['mensaje']) ? trim($_POST['mensaje']) : null;
 
-// Preparar inserción segura
+if (!$nombre || !$correo || !$mensaje) {
+    http_response_code(400); 
+    echo "Faltan datos obligatorios";
+    exit;
+}
+
 $stmt = $conn->prepare("INSERT INTO mensajes (nombre, correo, mensaje) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $nombre, $correo, $mensaje);
 
 if ($stmt->execute()) {
-    echo "<script>
-            alert('Mensaje enviado correctamente.');
-            window.location.href = 'index.html';
-          </script>";
+    echo "OK";
 } else {
-    echo "<script>
-            alert('Error al enviar mensaje.');
-            window.location.href = 'index.html';
-          </script>";
+    http_response_code(500);
+    echo "Error al guardar el mensaje";
 }
 
 $stmt->close();

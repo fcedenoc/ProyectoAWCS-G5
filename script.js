@@ -1,5 +1,5 @@
 
-const links = document.querySelectorAll('.nav-links a');
+const links = document.querySelectorAll('.nav-links a[data-page]');
 const pages = document.querySelectorAll('.page');
 
 links.forEach(link => {
@@ -39,8 +39,21 @@ accordions.forEach(item => {
     });
 });
 
-const form = document.getElementById('contactForm');
-
-form.addEventListener('submit', function () {
-    // el PHP se encargará del mensaje.
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.substring(1);
+    
+    if (hash) {
+        pages.forEach(page => page.classList.remove('active'));
+        
+        const targetPage = document.getElementById(hash);
+        if (targetPage) {
+            targetPage.classList.add('active');
+            
+            links.forEach(l => l.classList.remove('active'));
+            const activeLink = document.querySelector(`a[data-page="${hash}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    }
 });
