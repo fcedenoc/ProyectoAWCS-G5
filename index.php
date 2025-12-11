@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,7 +19,9 @@
             <li><a href="#" data-page="servicios">Servicios</a></li>
             <li><a href="#" data-page="denuncia">Mi Denuncia</a></li>
             <li><a href="#" data-page="contacto">Contacto</a></li>
+            <li><a href="#" onclick="logout()">Cerrar Sesión</a></li>
             <li><button id="themeToggle" class="theme-btn"><i class="bi bi-sun"></i></button></li>
+            <li><button id="adminToggle" class="admin-btn"><i class="bi bi-toggle-off"></i></button></li>
         </ul>
     </nav>
 

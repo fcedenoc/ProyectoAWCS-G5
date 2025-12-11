@@ -43,25 +43,13 @@
     <div class="login-card">
         <h3 class="mb-3">Confirmación</h3>
         <p id="mensaje" class="mb-4">
-            Hemos enviado un correo a la dirección que termina en <span id="last3"></span> <br>
-            Siga las instrucciones del mensaje para restablecer su contraseña.
+            Hemos enviado un mensaje a tu dirección de correo electrónico <br>
+            Siga las instrucciones del correo para restablecer su contraseña.
         </p>
 
         <div class="enlaces">
-            <a href="login.html">Inicia sesión</a>
+            <a href="login.php">Inicia sesión</a>
         </div>
-
-    </div>
-
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const last3 = urlParams.get('last3');
-        if (last3) {
-            document.getElementById('last3').textContent = last3;
-        } else {
-            document.getElementById('mensaje').textContent = 'Error: No se pudo obtener la información del correo.';
-        }
-    </script>
 
 </body>
 </html>

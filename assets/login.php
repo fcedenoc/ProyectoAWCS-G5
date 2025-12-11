@@ -89,64 +89,13 @@ error_reporting(E_ALL);
 
             <div class="enlaces mt-3">
                 <p><a href="recuperacontra.html">¿Olvidaste tu contraseña?</a></p>
-                <p><a href="registro.html">Crear cuenta nueva</a></p>
+                <p><a href="registro.php">Crear cuenta nueva</a></p>
             </div>
 
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            const usuario = document.getElementById("usuario").value.trim();
-            const contrasenna = document.getElementById("contrasenna").value.trim();
-
-            if (usuario.length === 0) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Datos faltantes',
-                    text: 'Debe ingresar un usuario.',
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true
-                });
-                return;
-            }
-
-            if (contrasenna.length === 0) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Datos faltantes',
-                    text: 'Debe ingresar la contraseña.',
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true
-                });
-                return;
-            }
-
-            Swal.fire({
-                icon: 'success',
-                title: 'Inicio de sesión correcto',
-                text: 'Redirigiendo...',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 2000,
-                timerProgressBar: true
-            });
-
-            setTimeout(() => {
-                window.location.href = "../index.html";
-            }, 2000);
-        });
-    </script>
+    <script src="login.js"></script>
 
 </body>
 </html>

@@ -1,20 +1,4 @@
 
-const links = document.querySelectorAll('.nav-links a');
-const pages = document.querySelectorAll('.page');
-
-links.forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = link.dataset.page;
-
-        links.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-
-        pages.forEach(page => page.classList.remove('active'));
-        document.getElementById(target).classList.add('active');
-    });
-});
-
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -22,13 +6,53 @@ menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
 });
 
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const icon = themeToggle.querySelector('i');
-    icon.classList.toggle('bi-moon');
-    icon.classList.toggle('bi-sun');
+attachEventListeners();
+
+const adminToggle = document.getElementById('adminToggle');
+adminToggle.addEventListener('click', () => {
+    window.location.href = 'panelAdmin.php';
 });
+
+function attachEventListeners() {
+    const links = document.querySelectorAll('.nav-links a');
+    const pages = document.querySelectorAll('.page');
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = link.dataset.page;
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(target).classList.add('active');
+        });
+    });
+
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const icon = themeToggle.querySelector('i');
+        icon.classList.toggle('bi-moon');
+        icon.classList.toggle('bi-sun');
+    });
+
+    const adminToggle = document.getElementById('adminToggle');
+    adminToggle.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const icon = adminToggle.querySelector('i');
+        if (isAdmin) {
+            navLinks.innerHTML = userMenu;
+            icon.classList.remove('bi-toggle-on');
+            icon.classList.add('bi-toggle-off');
+            isAdmin = false;
+        } else {
+            navLinks.innerHTML = adminMenu;
+            icon.classList.remove('bi-toggle-off');
+            icon.classList.add('bi-toggle-on');
+            isAdmin = true;
+        }
+        attachEventListeners();
+    });
+}
 
 const accordions = document.querySelectorAll('.accordion-item');
 
@@ -45,3 +69,7 @@ form.addEventListener('submit', e => {
     alert('Gracias por tu mensaje. Te contactaremos pronto.');
     form.reset();
 });
+
+function logout() {
+    window.location.href = 'assets/login.php';
+}

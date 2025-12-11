@@ -6,7 +6,6 @@ error_reporting(E_ALL);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -80,6 +79,11 @@ error_reporting(E_ALL);
       </div>
 
       <div class="mb-3 text-start">
+      <label class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario" required>
+      </div>
+
+      <div class="mb-3 text-start">
         <label class="form-label">Correo electrónico</label>
         <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" required>
       </div>
@@ -120,73 +124,11 @@ error_reporting(E_ALL);
     </form>
 
     <div class="extra-links mt-3">
-      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+      <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión</a></p>
     </div>
   </div>
 
-<script>
-document.getElementById("registerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const cedula = document.getElementById("cedula").value.trim();
-  const nombre = document.getElementById("nombre").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const contrasena = document.getElementById("contrasena").value.trim();
-  const confirmar = document.getElementById("confirmar").value.trim();
-  const direccion = document.getElementById("direccion").value.trim();
-  const genero = document.querySelector('input[name="genero"]:checked');
-
-  if (!cedula || !nombre || !email || !contrasena || !confirmar || !direccion || !genero) {
-    return Swal.fire({
-      icon: 'error',
-      title: 'Campos incompletos',
-      text: 'Todos los campos son obligatorios.',
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-  }
-
-  if (!correo.includes('@')) {
-    return Swal.fire({
-      icon: 'error',
-      title: 'Correo inválido',
-      text: 'Ingrese un correo válido.',
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-  }
-
-  if (contrasena !== confirmar) {
-    return Swal.fire({
-      icon: 'error',
-      title: 'Contraseñas no coinciden',
-      text: 'Las contraseñas deben ser iguales.',
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000
-    });
-  }
-
-  Swal.fire({
-    icon: 'success',
-    title: 'Registro exitoso',
-    text: 'Redirigiendo a inicio de sesión...',
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 2500
-  });
-
-  setTimeout(() => {
-    window.location.href = "login.html";
-  }, 2500);
-});
-</script>
+<script src="registro.js"></script>
 
 </body>
 </html>

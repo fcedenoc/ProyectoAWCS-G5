@@ -198,3 +198,16 @@ body.dark {
     --fondo: #1e1e1e;
     --texto: #E6EEF2;
 }
+
+.admin-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-btn:hover {
+    color: #ddd;
+}
