@@ -40,8 +40,7 @@ accordions.forEach(item => {
 });
 
 const form = document.getElementById('contactForm');
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Gracias por tu mensaje. Te contactaremos pronto.');
-    form.reset();
+
+form.addEventListener('submit', function () {
+    // el PHP se encargará del mensaje.
 });

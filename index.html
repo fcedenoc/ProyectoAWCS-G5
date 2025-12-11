@@ -69,10 +69,10 @@
 
         <section id="contacto" class="page">
             <h2>Contáctanos</h2>
-            <form id="contactForm" class="form">
-                <input type="text" placeholder="Nombre completo" required>
-                <input type="email" placeholder="Correo electrónico" required>
-                <textarea rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+            <form id="contactForm" class="form" action="mensajes_guardar.php" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
                 <button type="submit">Enviar Mensaje</button>
             </form>
 
